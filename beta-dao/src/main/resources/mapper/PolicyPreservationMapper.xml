@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mu.beta.dao.PolicyPreservationMapper">
+  <resultMap id="BaseResultMap" type="com.mu.beta.model.PolicyPreservation">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="inc_dec_order_no" jdbcType="VARCHAR" property="incDecOrderNo" />
+    <result column="policy_no" jdbcType="VARCHAR" property="policyNo" />
+    <result column="insurance_policy_no" jdbcType="VARCHAR" property="insurancePolicyNo" />
+    <result column="channel_order_no" jdbcType="VARCHAR" property="channelOrderNo" />
+    <result column="balance_no" jdbcType="VARCHAR" property="balanceNo" />
+    <result column="preservation_type" jdbcType="BIT" property="preservationType" />
+    <result column="inc_revise_no" jdbcType="VARCHAR" property="incReviseNo" />
+    <result column="dec_revise_no" jdbcType="VARCHAR" property="decReviseNo" />
+    <result column="business_type" jdbcType="BIT" property="businessType" />
+    <result column="business_detail_type" jdbcType="BIT" property="businessDetailType" />
+    <result column="product_code" jdbcType="VARCHAR" property="productCode" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="user_code" jdbcType="VARCHAR" property="userCode" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="multi_plan" jdbcType="TINYINT" property="multiPlan" />
+    <result column="pay_type" jdbcType="BIT" property="payType" />
+    <result column="pay_status" jdbcType="BIT" property="payStatus" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="pay_expired_time" jdbcType="TIMESTAMP" property="payExpiredTime" />
+    <result column="inc_revise_sum" jdbcType="INTEGER" property="incReviseSum" />
+    <result column="inc_revise_premium" jdbcType="DECIMAL" property="incRevisePremium" />
+    <result column="dec_revise_sum" jdbcType="INTEGER" property="decReviseSum" />
+    <result column="dec_revise_premium" jdbcType="DECIMAL" property="decRevisePremium" />
+    <result column="inc_dec_premium" jdbcType="DECIMAL" property="incDecPremium" />
+    <result column="apply_time" jdbcType="TIMESTAMP" property="applyTime" />
+    <result column="effective_date" jdbcType="TIMESTAMP" property="effectiveDate" />
+    <result column="invalid_date" jdbcType="TIMESTAMP" property="invalidDate" />
+    <result column="business_belong_user_code" jdbcType="VARCHAR" property="businessBelongUserCode" />
+    <result column="business_belong_user_name" jdbcType="VARCHAR" property="businessBelongUserName" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="end_date" jdbcType="TIMESTAMP" property="endDate" />
+    <result column="sell_channel_code" jdbcType="VARCHAR" property="sellChannelCode" />
+    <result column="sell_channel_name" jdbcType="VARCHAR" property="sellChannelName" />
+    <result column="holder_type" jdbcType="BIT" property="holderType" />
+    <result column="holder_name" jdbcType="VARCHAR" property="holderName" />
+    <result column="checker_code" jdbcType="VARCHAR" property="checkerCode" />
+    <result column="checker_name" jdbcType="VARCHAR" property="checkerName" />
+    <result column="check_comment" jdbcType="VARCHAR" property="checkComment" />
+    <result column="check_time" jdbcType="TIMESTAMP" property="checkTime" />
+    <result column="insurance_code" jdbcType="VARCHAR" property="insuranceCode" />
+    <result column="insurance_name" jdbcType="VARCHAR" property="insuranceName" />
+    <result column="cancel_time" jdbcType="TIMESTAMP" property="cancelTime" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="big_policy" jdbcType="BIT" property="bigPolicy" />
+    <result column="payment_type" jdbcType="BIT" property="paymentType" />
+    <result column="coinsurance_is" jdbcType="BIT" property="coinsuranceIs" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, inc_dec_order_no, policy_no, insurance_policy_no, channel_order_no, balance_no, 
+    preservation_type, inc_revise_no, dec_revise_no, business_type, business_detail_type, 
+    product_code, product_name, user_code, user_name, multi_plan, pay_type, pay_status, 
+    pay_time, pay_expired_time, inc_revise_sum, inc_revise_premium, dec_revise_sum, dec_revise_premium, 
+    inc_dec_premium, apply_time, effective_date, invalid_date, business_belong_user_code, 
+    business_belong_user_name, remark, start_date, end_date, sell_channel_code, sell_channel_name, 
+    holder_type, holder_name, checker_code, checker_name, check_comment, check_time, 
+    insurance_code, insurance_name, cancel_time, status, amount, big_policy, payment_type, 
+    coinsurance_is, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from b_policy_preservation
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from b_policy_preservation
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mu.beta.model.PolicyPreservation">
+    insert into b_policy_preservation (id, inc_dec_order_no, policy_no, 
+      insurance_policy_no, channel_order_no, balance_no, 
+      preservation_type, inc_revise_no, dec_revise_no, 
+      business_type, business_detail_type, product_code, 
+      product_name, user_code, user_name, 
+      multi_plan, pay_type, pay_status, 
+      pay_time, pay_expired_time, inc_revise_sum, 
+      inc_revise_premium, dec_revise_sum, dec_revise_premium, 
+      inc_dec_premium, apply_time, effective_date, 
+      invalid_date, business_belong_user_code, 
+      business_belong_user_name, remark, start_date, 
+      end_date, sell_channel_code, sell_channel_name, 
+      holder_type, holder_name, checker_code, 
+      checker_name, check_comment, check_time, 
+      insurance_code, insurance_name, cancel_time, 
+      status, amount, big_policy, 
+      payment_type, coinsurance_is, create_time, 
+      update_time)
+    values (#{id,jdbcType=BIGINT}, #{incDecOrderNo,jdbcType=VARCHAR}, #{policyNo,jdbcType=VARCHAR}, 
+      #{insurancePolicyNo,jdbcType=VARCHAR}, #{channelOrderNo,jdbcType=VARCHAR}, #{balanceNo,jdbcType=VARCHAR}, 
+      #{preservationType,jdbcType=BIT}, #{incReviseNo,jdbcType=VARCHAR}, #{decReviseNo,jdbcType=VARCHAR}, 
+      #{businessType,jdbcType=BIT}, #{businessDetailType,jdbcType=BIT}, #{productCode,jdbcType=VARCHAR}, 
+      #{productName,jdbcType=VARCHAR}, #{userCode,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{multiPlan,jdbcType=TINYINT}, #{payType,jdbcType=BIT}, #{payStatus,jdbcType=BIT}, 
+      #{payTime,jdbcType=TIMESTAMP}, #{payExpiredTime,jdbcType=TIMESTAMP}, #{incReviseSum,jdbcType=INTEGER}, 
+      #{incRevisePremium,jdbcType=DECIMAL}, #{decReviseSum,jdbcType=INTEGER}, #{decRevisePremium,jdbcType=DECIMAL}, 
+      #{incDecPremium,jdbcType=DECIMAL}, #{applyTime,jdbcType=TIMESTAMP}, #{effectiveDate,jdbcType=TIMESTAMP}, 
+      #{invalidDate,jdbcType=TIMESTAMP}, #{businessBelongUserCode,jdbcType=VARCHAR}, 
+      #{businessBelongUserName,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{startDate,jdbcType=TIMESTAMP}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{sellChannelCode,jdbcType=VARCHAR}, #{sellChannelName,jdbcType=VARCHAR}, 
+      #{holderType,jdbcType=BIT}, #{holderName,jdbcType=VARCHAR}, #{checkerCode,jdbcType=VARCHAR}, 
+      #{checkerName,jdbcType=VARCHAR}, #{checkComment,jdbcType=VARCHAR}, #{checkTime,jdbcType=TIMESTAMP}, 
+      #{insuranceCode,jdbcType=VARCHAR}, #{insuranceName,jdbcType=VARCHAR}, #{cancelTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=BIT}, #{amount,jdbcType=DECIMAL}, #{bigPolicy,jdbcType=BIT}, 
+      #{paymentType,jdbcType=BIT}, #{coinsuranceIs,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mu.beta.model.PolicyPreservation">
+    insert into b_policy_preservation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="incDecOrderNo != null">
+        inc_dec_order_no,
+      </if>
+      <if test="policyNo != null">
+        policy_no,
+      </if>
+      <if test="insurancePolicyNo != null">
+        insurance_policy_no,
+      </if>
+      <if test="channelOrderNo != null">
+        channel_order_no,
+      </if>
+      <if test="balanceNo != null">
+        balance_no,
+      </if>
+      <if test="preservationType != null">
+        preservation_type,
+      </if>
+      <if test="incReviseNo != null">
+        inc_revise_no,
+      </if>
+      <if test="decReviseNo != null">
+        dec_revise_no,
+      </if>
+      <if test="businessType != null">
+        business_type,
+      </if>
+      <if test="businessDetailType != null">
+        business_detail_type,
+      </if>
+      <if test="productCode != null">
+        product_code,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="userCode != null">
+        user_code,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="multiPlan != null">
+        multi_plan,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+      <if test="payStatus != null">
+        pay_status,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="payExpiredTime != null">
+        pay_expired_time,
+      </if>
+      <if test="incReviseSum != null">
+        inc_revise_sum,
+      </if>
+      <if test="incRevisePremium != null">
+        inc_revise_premium,
+      </if>
+      <if test="decReviseSum != null">
+        dec_revise_sum,
+      </if>
+      <if test="decRevisePremium != null">
+        dec_revise_premium,
+      </if>
+      <if test="incDecPremium != null">
+        inc_dec_premium,
+      </if>
+      <if test="applyTime != null">
+        apply_time,
+      </if>
+      <if test="effectiveDate != null">
+        effective_date,
+      </if>
+      <if test="invalidDate != null">
+        invalid_date,
+      </if>
+      <if test="businessBelongUserCode != null">
+        business_belong_user_code,
+      </if>
+      <if test="businessBelongUserName != null">
+        business_belong_user_name,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="sellChannelCode != null">
+        sell_channel_code,
+      </if>
+      <if test="sellChannelName != null">
+        sell_channel_name,
+      </if>
+      <if test="holderType != null">
+        holder_type,
+      </if>
+      <if test="holderName != null">
+        holder_name,
+      </if>
+      <if test="checkerCode != null">
+        checker_code,
+      </if>
+      <if test="checkerName != null">
+        checker_name,
+      </if>
+      <if test="checkComment != null">
+        check_comment,
+      </if>
+      <if test="checkTime != null">
+        check_time,
+      </if>
+      <if test="insuranceCode != null">
+        insurance_code,
+      </if>
+      <if test="insuranceName != null">
+        insurance_name,
+      </if>
+      <if test="cancelTime != null">
+        cancel_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="bigPolicy != null">
+        big_policy,
+      </if>
+      <if test="paymentType != null">
+        payment_type,
+      </if>
+      <if test="coinsuranceIs != null">
+        coinsurance_is,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="incDecOrderNo != null">
+        #{incDecOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null">
+        #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancePolicyNo != null">
+        #{insurancePolicyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelOrderNo != null">
+        #{channelOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceNo != null">
+        #{balanceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="preservationType != null">
+        #{preservationType,jdbcType=BIT},
+      </if>
+      <if test="incReviseNo != null">
+        #{incReviseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="decReviseNo != null">
+        #{decReviseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=BIT},
+      </if>
+      <if test="businessDetailType != null">
+        #{businessDetailType,jdbcType=BIT},
+      </if>
+      <if test="productCode != null">
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null">
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="multiPlan != null">
+        #{multiPlan,jdbcType=TINYINT},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=BIT},
+      </if>
+      <if test="payStatus != null">
+        #{payStatus,jdbcType=BIT},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payExpiredTime != null">
+        #{payExpiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="incReviseSum != null">
+        #{incReviseSum,jdbcType=INTEGER},
+      </if>
+      <if test="incRevisePremium != null">
+        #{incRevisePremium,jdbcType=DECIMAL},
+      </if>
+      <if test="decReviseSum != null">
+        #{decReviseSum,jdbcType=INTEGER},
+      </if>
+      <if test="decRevisePremium != null">
+        #{decRevisePremium,jdbcType=DECIMAL},
+      </if>
+      <if test="incDecPremium != null">
+        #{incDecPremium,jdbcType=DECIMAL},
+      </if>
+      <if test="applyTime != null">
+        #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectiveDate != null">
+        #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidDate != null">
+        #{invalidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessBelongUserCode != null">
+        #{businessBelongUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessBelongUserName != null">
+        #{businessBelongUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellChannelCode != null">
+        #{sellChannelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellChannelName != null">
+        #{sellChannelName,jdbcType=VARCHAR},
+      </if>
+      <if test="holderType != null">
+        #{holderType,jdbcType=BIT},
+      </if>
+      <if test="holderName != null">
+        #{holderName,jdbcType=VARCHAR},
+      </if>
+      <if test="checkerCode != null">
+        #{checkerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="checkerName != null">
+        #{checkerName,jdbcType=VARCHAR},
+      </if>
+      <if test="checkComment != null">
+        #{checkComment,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null">
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insuranceCode != null">
+        #{insuranceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceName != null">
+        #{insuranceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelTime != null">
+        #{cancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="bigPolicy != null">
+        #{bigPolicy,jdbcType=BIT},
+      </if>
+      <if test="paymentType != null">
+        #{paymentType,jdbcType=BIT},
+      </if>
+      <if test="coinsuranceIs != null">
+        #{coinsuranceIs,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mu.beta.model.PolicyPreservation">
+    update b_policy_preservation
+    <set>
+      <if test="incDecOrderNo != null">
+        inc_dec_order_no = #{incDecOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null">
+        policy_no = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancePolicyNo != null">
+        insurance_policy_no = #{insurancePolicyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelOrderNo != null">
+        channel_order_no = #{channelOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceNo != null">
+        balance_no = #{balanceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="preservationType != null">
+        preservation_type = #{preservationType,jdbcType=BIT},
+      </if>
+      <if test="incReviseNo != null">
+        inc_revise_no = #{incReviseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="decReviseNo != null">
+        dec_revise_no = #{decReviseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        business_type = #{businessType,jdbcType=BIT},
+      </if>
+      <if test="businessDetailType != null">
+        business_detail_type = #{businessDetailType,jdbcType=BIT},
+      </if>
+      <if test="productCode != null">
+        product_code = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null">
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="multiPlan != null">
+        multi_plan = #{multiPlan,jdbcType=TINYINT},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=BIT},
+      </if>
+      <if test="payStatus != null">
+        pay_status = #{payStatus,jdbcType=BIT},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payExpiredTime != null">
+        pay_expired_time = #{payExpiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="incReviseSum != null">
+        inc_revise_sum = #{incReviseSum,jdbcType=INTEGER},
+      </if>
+      <if test="incRevisePremium != null">
+        inc_revise_premium = #{incRevisePremium,jdbcType=DECIMAL},
+      </if>
+      <if test="decReviseSum != null">
+        dec_revise_sum = #{decReviseSum,jdbcType=INTEGER},
+      </if>
+      <if test="decRevisePremium != null">
+        dec_revise_premium = #{decRevisePremium,jdbcType=DECIMAL},
+      </if>
+      <if test="incDecPremium != null">
+        inc_dec_premium = #{incDecPremium,jdbcType=DECIMAL},
+      </if>
+      <if test="applyTime != null">
+        apply_time = #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectiveDate != null">
+        effective_date = #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidDate != null">
+        invalid_date = #{invalidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessBelongUserCode != null">
+        business_belong_user_code = #{businessBelongUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessBelongUserName != null">
+        business_belong_user_name = #{businessBelongUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellChannelCode != null">
+        sell_channel_code = #{sellChannelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellChannelName != null">
+        sell_channel_name = #{sellChannelName,jdbcType=VARCHAR},
+      </if>
+      <if test="holderType != null">
+        holder_type = #{holderType,jdbcType=BIT},
+      </if>
+      <if test="holderName != null">
+        holder_name = #{holderName,jdbcType=VARCHAR},
+      </if>
+      <if test="checkerCode != null">
+        checker_code = #{checkerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="checkerName != null">
+        checker_name = #{checkerName,jdbcType=VARCHAR},
+      </if>
+      <if test="checkComment != null">
+        check_comment = #{checkComment,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null">
+        check_time = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insuranceCode != null">
+        insurance_code = #{insuranceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceName != null">
+        insurance_name = #{insuranceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelTime != null">
+        cancel_time = #{cancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="bigPolicy != null">
+        big_policy = #{bigPolicy,jdbcType=BIT},
+      </if>
+      <if test="paymentType != null">
+        payment_type = #{paymentType,jdbcType=BIT},
+      </if>
+      <if test="coinsuranceIs != null">
+        coinsurance_is = #{coinsuranceIs,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mu.beta.model.PolicyPreservation">
+    update b_policy_preservation
+    set inc_dec_order_no = #{incDecOrderNo,jdbcType=VARCHAR},
+      policy_no = #{policyNo,jdbcType=VARCHAR},
+      insurance_policy_no = #{insurancePolicyNo,jdbcType=VARCHAR},
+      channel_order_no = #{channelOrderNo,jdbcType=VARCHAR},
+      balance_no = #{balanceNo,jdbcType=VARCHAR},
+      preservation_type = #{preservationType,jdbcType=BIT},
+      inc_revise_no = #{incReviseNo,jdbcType=VARCHAR},
+      dec_revise_no = #{decReviseNo,jdbcType=VARCHAR},
+      business_type = #{businessType,jdbcType=BIT},
+      business_detail_type = #{businessDetailType,jdbcType=BIT},
+      product_code = #{productCode,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      user_code = #{userCode,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      multi_plan = #{multiPlan,jdbcType=TINYINT},
+      pay_type = #{payType,jdbcType=BIT},
+      pay_status = #{payStatus,jdbcType=BIT},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      pay_expired_time = #{payExpiredTime,jdbcType=TIMESTAMP},
+      inc_revise_sum = #{incReviseSum,jdbcType=INTEGER},
+      inc_revise_premium = #{incRevisePremium,jdbcType=DECIMAL},
+      dec_revise_sum = #{decReviseSum,jdbcType=INTEGER},
+      dec_revise_premium = #{decRevisePremium,jdbcType=DECIMAL},
+      inc_dec_premium = #{incDecPremium,jdbcType=DECIMAL},
+      apply_time = #{applyTime,jdbcType=TIMESTAMP},
+      effective_date = #{effectiveDate,jdbcType=TIMESTAMP},
+      invalid_date = #{invalidDate,jdbcType=TIMESTAMP},
+      business_belong_user_code = #{businessBelongUserCode,jdbcType=VARCHAR},
+      business_belong_user_name = #{businessBelongUserName,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      sell_channel_code = #{sellChannelCode,jdbcType=VARCHAR},
+      sell_channel_name = #{sellChannelName,jdbcType=VARCHAR},
+      holder_type = #{holderType,jdbcType=BIT},
+      holder_name = #{holderName,jdbcType=VARCHAR},
+      checker_code = #{checkerCode,jdbcType=VARCHAR},
+      checker_name = #{checkerName,jdbcType=VARCHAR},
+      check_comment = #{checkComment,jdbcType=VARCHAR},
+      check_time = #{checkTime,jdbcType=TIMESTAMP},
+      insurance_code = #{insuranceCode,jdbcType=VARCHAR},
+      insurance_name = #{insuranceName,jdbcType=VARCHAR},
+      cancel_time = #{cancelTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=BIT},
+      amount = #{amount,jdbcType=DECIMAL},
+      big_policy = #{bigPolicy,jdbcType=BIT},
+      payment_type = #{paymentType,jdbcType=BIT},
+      coinsurance_is = #{coinsuranceIs,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

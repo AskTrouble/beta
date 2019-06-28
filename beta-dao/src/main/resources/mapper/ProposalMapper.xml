@@ -1,0 +1,1637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mu.beta.dao.ProposalMapper">
+  <resultMap id="BaseResultMap" type="com.mu.beta.model.Proposal">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="proposal_no" jdbcType="VARCHAR" property="proposalNo" />
+    <result column="insurance_proposal_no" jdbcType="VARCHAR" property="insuranceProposalNo" />
+    <result column="policy_no" jdbcType="VARCHAR" property="policyNo" />
+    <result column="insurance_policy_no" jdbcType="VARCHAR" property="insurancePolicyNo" />
+    <result column="channel_order_no" jdbcType="VARCHAR" property="channelOrderNo" />
+    <result column="product_code" jdbcType="VARCHAR" property="productCode" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="multi_plan" jdbcType="TINYINT" property="multiPlan" />
+    <result column="policy_category" jdbcType="BIT" property="policyCategory" />
+    <result column="policy_property" jdbcType="BIT" property="policyProperty" />
+    <result column="policy_type" jdbcType="BIT" property="policyType" />
+    <result column="holder_type" jdbcType="BIT" property="holderType" />
+    <result column="holder_name" jdbcType="VARCHAR" property="holderName" />
+    <result column="insured_type" jdbcType="BIT" property="insuredType" />
+    <result column="subject_type" jdbcType="BIT" property="subjectType" />
+    <result column="insurance_code" jdbcType="VARCHAR" property="insuranceCode" />
+    <result column="insurance_name" jdbcType="VARCHAR" property="insuranceName" />
+    <result column="business_type" jdbcType="BIT" property="businessType" />
+    <result column="business_detail_type" jdbcType="BIT" property="businessDetailType" />
+    <result column="user_code" jdbcType="VARCHAR" property="userCode" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="first_insure_master_num" jdbcType="INTEGER" property="firstInsureMasterNum" />
+    <result column="first_insure_slave_num" jdbcType="INTEGER" property="firstInsureSlaveNum" />
+    <result column="industry_code" jdbcType="VARCHAR" property="industryCode" />
+    <result column="industry_name" jdbcType="VARCHAR" property="industryName" />
+    <result column="profession_type" jdbcType="VARCHAR" property="professionType" />
+    <result column="profession_code" jdbcType="VARCHAR" property="professionCode" />
+    <result column="profession_name" jdbcType="VARCHAR" property="professionName" />
+    <result column="city_code" jdbcType="VARCHAR" property="cityCode" />
+    <result column="city_name" jdbcType="VARCHAR" property="cityName" />
+    <result column="premium_price" jdbcType="DOUBLE" property="premiumPrice" />
+    <result column="sum_premium" jdbcType="DOUBLE" property="sumPremium" />
+    <result column="net_premium" jdbcType="DOUBLE" property="netPremium" />
+    <result column="first_insure_premium" jdbcType="DOUBLE" property="firstInsurePremium" />
+    <result column="extra_premium" jdbcType="DOUBLE" property="extraPremium" />
+    <result column="rebate_percent" jdbcType="DOUBLE" property="rebatePercent" />
+    <result column="rebate_premium" jdbcType="DOUBLE" property="rebatePremium" />
+    <result column="sum_quantity" jdbcType="INTEGER" property="sumQuantity" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="end_date" jdbcType="TIMESTAMP" property="endDate" />
+    <result column="insure_time_unit" jdbcType="BIT" property="insureTimeUnit" />
+    <result column="insure_time" jdbcType="DOUBLE" property="insureTime" />
+    <result column="payment_type" jdbcType="BIT" property="paymentType" />
+    <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
+    <result column="payment_status" jdbcType="BIT" property="paymentStatus" />
+    <result column="payment_expired_time" jdbcType="TIMESTAMP" property="paymentExpiredTime" />
+    <result column="proposal_time" jdbcType="TIMESTAMP" property="proposalTime" />
+    <result column="insurance_proposal_time" jdbcType="TIMESTAMP" property="insuranceProposalTime" />
+    <result column="checker_code" jdbcType="VARCHAR" property="checkerCode" />
+    <result column="checker_name" jdbcType="VARCHAR" property="checkerName" />
+    <result column="checker_mark" jdbcType="VARCHAR" property="checkerMark" />
+    <result column="check_time" jdbcType="TIMESTAMP" property="checkTime" />
+    <result column="insurance_insure_time" jdbcType="TIMESTAMP" property="insuranceInsureTime" />
+    <result column="insure_directions" jdbcType="VARCHAR" property="insureDirections" />
+    <result column="policy_download_url" jdbcType="VARCHAR" property="policyDownloadUrl" />
+    <result column="policy_query_url" jdbcType="VARCHAR" property="policyQueryUrl" />
+    <result column="invoice_url" jdbcType="VARCHAR" property="invoiceUrl" />
+    <result column="policy_source_code" jdbcType="VARCHAR" property="policySourceCode" />
+    <result column="policy_source_name" jdbcType="VARCHAR" property="policySourceName" />
+    <result column="sell_channel_code" jdbcType="VARCHAR" property="sellChannelCode" />
+    <result column="sell_channel_name" jdbcType="VARCHAR" property="sellChannelName" />
+    <result column="invoice_type" jdbcType="BIT" property="invoiceType" />
+    <result column="invoice_format" jdbcType="BIT" property="invoiceFormat" />
+    <result column="invoice_buyer_type" jdbcType="BIT" property="invoiceBuyerType" />
+    <result column="business_belong_user_code" jdbcType="VARCHAR" property="businessBelongUserCode" />
+    <result column="business_belong_user_name" jdbcType="VARCHAR" property="businessBelongUserName" />
+    <result column="operation_user_code" jdbcType="VARCHAR" property="operationUserCode" />
+    <result column="operation_user_name" jdbcType="VARCHAR" property="operationUserName" />
+    <result column="policy_level" jdbcType="BIT" property="policyLevel" />
+    <result column="online_preserve" jdbcType="BIT" property="onlinePreserve" />
+    <result column="online_renewal" jdbcType="BIT" property="onlineRenewal" />
+    <result column="continued_type" jdbcType="BIT" property="continuedType" />
+    <result column="continued_policy_is" jdbcType="BIT" property="continuedPolicyIs" />
+    <result column="continued_policy_no" jdbcType="VARCHAR" property="continuedPolicyNo" />
+    <result column="continued_original_policy_no" jdbcType="VARCHAR" property="continuedOriginalPolicyNo" />
+    <result column="take_over_receive_is" jdbcType="BIT" property="takeOverReceiveIs" />
+    <result column="commission_discount_percent" jdbcType="DECIMAL" property="commissionDiscountPercent" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="big_policy" jdbcType="BIT" property="bigPolicy" />
+    <result column="step" jdbcType="BIT" property="step" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="ledger_status" jdbcType="BIT" property="ledgerStatus" />
+    <result column="refund_status" jdbcType="BIT" property="refundStatus" />
+    <result column="applicant_type" jdbcType="BIT" property="applicantType" />
+    <result column="sign_status" jdbcType="BIT" property="signStatus" />
+    <result column="pay_type" jdbcType="BIT" property="payType" />
+    <result column="coinsurance_is" jdbcType="BIT" property="coinsuranceIs" />
+    <result column="sales_code" jdbcType="VARCHAR" property="salesCode" />
+    <result column="extend_a" jdbcType="VARCHAR" property="extendA" />
+    <result column="extend_b" jdbcType="VARCHAR" property="extendB" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, proposal_no, insurance_proposal_no, policy_no, insurance_policy_no, channel_order_no, 
+    product_code, product_name, multi_plan, policy_category, policy_property, policy_type, 
+    holder_type, holder_name, insured_type, subject_type, insurance_code, insurance_name, 
+    business_type, business_detail_type, user_code, user_name, first_insure_master_num, 
+    first_insure_slave_num, industry_code, industry_name, profession_type, profession_code, 
+    profession_name, city_code, city_name, premium_price, sum_premium, net_premium, first_insure_premium, 
+    extra_premium, rebate_percent, rebate_premium, sum_quantity, start_date, end_date, 
+    insure_time_unit, insure_time, payment_type, payment_time, payment_status, payment_expired_time, 
+    proposal_time, insurance_proposal_time, checker_code, checker_name, checker_mark, 
+    check_time, insurance_insure_time, insure_directions, policy_download_url, policy_query_url, 
+    invoice_url, policy_source_code, policy_source_name, sell_channel_code, sell_channel_name, 
+    invoice_type, invoice_format, invoice_buyer_type, business_belong_user_code, business_belong_user_name, 
+    operation_user_code, operation_user_name, policy_level, online_preserve, online_renewal, 
+    continued_type, continued_policy_is, continued_policy_no, continued_original_policy_no, 
+    take_over_receive_is, commission_discount_percent, amount, big_policy, step, status, 
+    ledger_status, refund_status, applicant_type, sign_status, pay_type, coinsurance_is, 
+    sales_code, extend_a, extend_b, create_time, update_time
+  </sql>
+  <select id="selectByExample" parameterType="com.mu.beta.model.ProposalExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_proposal
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_proposal
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_proposal
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mu.beta.model.ProposalExample">
+    delete from t_proposal
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mu.beta.model.Proposal">
+    insert into t_proposal (id, proposal_no, insurance_proposal_no, 
+      policy_no, insurance_policy_no, channel_order_no, 
+      product_code, product_name, multi_plan, 
+      policy_category, policy_property, policy_type, 
+      holder_type, holder_name, insured_type, 
+      subject_type, insurance_code, insurance_name, 
+      business_type, business_detail_type, user_code, 
+      user_name, first_insure_master_num, first_insure_slave_num, 
+      industry_code, industry_name, profession_type, 
+      profession_code, profession_name, city_code, 
+      city_name, premium_price, sum_premium, 
+      net_premium, first_insure_premium, extra_premium, 
+      rebate_percent, rebate_premium, sum_quantity, 
+      start_date, end_date, insure_time_unit, 
+      insure_time, payment_type, payment_time, 
+      payment_status, payment_expired_time, proposal_time, 
+      insurance_proposal_time, checker_code, checker_name, 
+      checker_mark, check_time, insurance_insure_time, 
+      insure_directions, policy_download_url, policy_query_url, 
+      invoice_url, policy_source_code, policy_source_name, 
+      sell_channel_code, sell_channel_name, invoice_type, 
+      invoice_format, invoice_buyer_type, business_belong_user_code, 
+      business_belong_user_name, operation_user_code, 
+      operation_user_name, policy_level, online_preserve, 
+      online_renewal, continued_type, continued_policy_is, 
+      continued_policy_no, continued_original_policy_no, 
+      take_over_receive_is, commission_discount_percent, 
+      amount, big_policy, step, status, 
+      ledger_status, refund_status, applicant_type, 
+      sign_status, pay_type, coinsurance_is, 
+      sales_code, extend_a, extend_b, 
+      create_time, update_time)
+    values (#{id,jdbcType=BIGINT}, #{proposalNo,jdbcType=VARCHAR}, #{insuranceProposalNo,jdbcType=VARCHAR}, 
+      #{policyNo,jdbcType=VARCHAR}, #{insurancePolicyNo,jdbcType=VARCHAR}, #{channelOrderNo,jdbcType=VARCHAR}, 
+      #{productCode,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, #{multiPlan,jdbcType=TINYINT}, 
+      #{policyCategory,jdbcType=BIT}, #{policyProperty,jdbcType=BIT}, #{policyType,jdbcType=BIT}, 
+      #{holderType,jdbcType=BIT}, #{holderName,jdbcType=VARCHAR}, #{insuredType,jdbcType=BIT}, 
+      #{subjectType,jdbcType=BIT}, #{insuranceCode,jdbcType=VARCHAR}, #{insuranceName,jdbcType=VARCHAR}, 
+      #{businessType,jdbcType=BIT}, #{businessDetailType,jdbcType=BIT}, #{userCode,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{firstInsureMasterNum,jdbcType=INTEGER}, #{firstInsureSlaveNum,jdbcType=INTEGER}, 
+      #{industryCode,jdbcType=VARCHAR}, #{industryName,jdbcType=VARCHAR}, #{professionType,jdbcType=VARCHAR}, 
+      #{professionCode,jdbcType=VARCHAR}, #{professionName,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, 
+      #{cityName,jdbcType=VARCHAR}, #{premiumPrice,jdbcType=DOUBLE}, #{sumPremium,jdbcType=DOUBLE}, 
+      #{netPremium,jdbcType=DOUBLE}, #{firstInsurePremium,jdbcType=DOUBLE}, #{extraPremium,jdbcType=DOUBLE}, 
+      #{rebatePercent,jdbcType=DOUBLE}, #{rebatePremium,jdbcType=DOUBLE}, #{sumQuantity,jdbcType=INTEGER}, 
+      #{startDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, #{insureTimeUnit,jdbcType=BIT}, 
+      #{insureTime,jdbcType=DOUBLE}, #{paymentType,jdbcType=BIT}, #{paymentTime,jdbcType=TIMESTAMP}, 
+      #{paymentStatus,jdbcType=BIT}, #{paymentExpiredTime,jdbcType=TIMESTAMP}, #{proposalTime,jdbcType=TIMESTAMP}, 
+      #{insuranceProposalTime,jdbcType=TIMESTAMP}, #{checkerCode,jdbcType=VARCHAR}, #{checkerName,jdbcType=VARCHAR}, 
+      #{checkerMark,jdbcType=VARCHAR}, #{checkTime,jdbcType=TIMESTAMP}, #{insuranceInsureTime,jdbcType=TIMESTAMP}, 
+      #{insureDirections,jdbcType=VARCHAR}, #{policyDownloadUrl,jdbcType=VARCHAR}, #{policyQueryUrl,jdbcType=VARCHAR}, 
+      #{invoiceUrl,jdbcType=VARCHAR}, #{policySourceCode,jdbcType=VARCHAR}, #{policySourceName,jdbcType=VARCHAR}, 
+      #{sellChannelCode,jdbcType=VARCHAR}, #{sellChannelName,jdbcType=VARCHAR}, #{invoiceType,jdbcType=BIT}, 
+      #{invoiceFormat,jdbcType=BIT}, #{invoiceBuyerType,jdbcType=BIT}, #{businessBelongUserCode,jdbcType=VARCHAR}, 
+      #{businessBelongUserName,jdbcType=VARCHAR}, #{operationUserCode,jdbcType=VARCHAR}, 
+      #{operationUserName,jdbcType=VARCHAR}, #{policyLevel,jdbcType=BIT}, #{onlinePreserve,jdbcType=BIT}, 
+      #{onlineRenewal,jdbcType=BIT}, #{continuedType,jdbcType=BIT}, #{continuedPolicyIs,jdbcType=BIT}, 
+      #{continuedPolicyNo,jdbcType=VARCHAR}, #{continuedOriginalPolicyNo,jdbcType=VARCHAR}, 
+      #{takeOverReceiveIs,jdbcType=BIT}, #{commissionDiscountPercent,jdbcType=DECIMAL}, 
+      #{amount,jdbcType=DECIMAL}, #{bigPolicy,jdbcType=BIT}, #{step,jdbcType=BIT}, #{status,jdbcType=BIT}, 
+      #{ledgerStatus,jdbcType=BIT}, #{refundStatus,jdbcType=BIT}, #{applicantType,jdbcType=BIT}, 
+      #{signStatus,jdbcType=BIT}, #{payType,jdbcType=BIT}, #{coinsuranceIs,jdbcType=BIT}, 
+      #{salesCode,jdbcType=VARCHAR}, #{extendA,jdbcType=VARCHAR}, #{extendB,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mu.beta.model.Proposal">
+    insert into t_proposal
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="proposalNo != null">
+        proposal_no,
+      </if>
+      <if test="insuranceProposalNo != null">
+        insurance_proposal_no,
+      </if>
+      <if test="policyNo != null">
+        policy_no,
+      </if>
+      <if test="insurancePolicyNo != null">
+        insurance_policy_no,
+      </if>
+      <if test="channelOrderNo != null">
+        channel_order_no,
+      </if>
+      <if test="productCode != null">
+        product_code,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="multiPlan != null">
+        multi_plan,
+      </if>
+      <if test="policyCategory != null">
+        policy_category,
+      </if>
+      <if test="policyProperty != null">
+        policy_property,
+      </if>
+      <if test="policyType != null">
+        policy_type,
+      </if>
+      <if test="holderType != null">
+        holder_type,
+      </if>
+      <if test="holderName != null">
+        holder_name,
+      </if>
+      <if test="insuredType != null">
+        insured_type,
+      </if>
+      <if test="subjectType != null">
+        subject_type,
+      </if>
+      <if test="insuranceCode != null">
+        insurance_code,
+      </if>
+      <if test="insuranceName != null">
+        insurance_name,
+      </if>
+      <if test="businessType != null">
+        business_type,
+      </if>
+      <if test="businessDetailType != null">
+        business_detail_type,
+      </if>
+      <if test="userCode != null">
+        user_code,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="firstInsureMasterNum != null">
+        first_insure_master_num,
+      </if>
+      <if test="firstInsureSlaveNum != null">
+        first_insure_slave_num,
+      </if>
+      <if test="industryCode != null">
+        industry_code,
+      </if>
+      <if test="industryName != null">
+        industry_name,
+      </if>
+      <if test="professionType != null">
+        profession_type,
+      </if>
+      <if test="professionCode != null">
+        profession_code,
+      </if>
+      <if test="professionName != null">
+        profession_name,
+      </if>
+      <if test="cityCode != null">
+        city_code,
+      </if>
+      <if test="cityName != null">
+        city_name,
+      </if>
+      <if test="premiumPrice != null">
+        premium_price,
+      </if>
+      <if test="sumPremium != null">
+        sum_premium,
+      </if>
+      <if test="netPremium != null">
+        net_premium,
+      </if>
+      <if test="firstInsurePremium != null">
+        first_insure_premium,
+      </if>
+      <if test="extraPremium != null">
+        extra_premium,
+      </if>
+      <if test="rebatePercent != null">
+        rebate_percent,
+      </if>
+      <if test="rebatePremium != null">
+        rebate_premium,
+      </if>
+      <if test="sumQuantity != null">
+        sum_quantity,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="insureTimeUnit != null">
+        insure_time_unit,
+      </if>
+      <if test="insureTime != null">
+        insure_time,
+      </if>
+      <if test="paymentType != null">
+        payment_type,
+      </if>
+      <if test="paymentTime != null">
+        payment_time,
+      </if>
+      <if test="paymentStatus != null">
+        payment_status,
+      </if>
+      <if test="paymentExpiredTime != null">
+        payment_expired_time,
+      </if>
+      <if test="proposalTime != null">
+        proposal_time,
+      </if>
+      <if test="insuranceProposalTime != null">
+        insurance_proposal_time,
+      </if>
+      <if test="checkerCode != null">
+        checker_code,
+      </if>
+      <if test="checkerName != null">
+        checker_name,
+      </if>
+      <if test="checkerMark != null">
+        checker_mark,
+      </if>
+      <if test="checkTime != null">
+        check_time,
+      </if>
+      <if test="insuranceInsureTime != null">
+        insurance_insure_time,
+      </if>
+      <if test="insureDirections != null">
+        insure_directions,
+      </if>
+      <if test="policyDownloadUrl != null">
+        policy_download_url,
+      </if>
+      <if test="policyQueryUrl != null">
+        policy_query_url,
+      </if>
+      <if test="invoiceUrl != null">
+        invoice_url,
+      </if>
+      <if test="policySourceCode != null">
+        policy_source_code,
+      </if>
+      <if test="policySourceName != null">
+        policy_source_name,
+      </if>
+      <if test="sellChannelCode != null">
+        sell_channel_code,
+      </if>
+      <if test="sellChannelName != null">
+        sell_channel_name,
+      </if>
+      <if test="invoiceType != null">
+        invoice_type,
+      </if>
+      <if test="invoiceFormat != null">
+        invoice_format,
+      </if>
+      <if test="invoiceBuyerType != null">
+        invoice_buyer_type,
+      </if>
+      <if test="businessBelongUserCode != null">
+        business_belong_user_code,
+      </if>
+      <if test="businessBelongUserName != null">
+        business_belong_user_name,
+      </if>
+      <if test="operationUserCode != null">
+        operation_user_code,
+      </if>
+      <if test="operationUserName != null">
+        operation_user_name,
+      </if>
+      <if test="policyLevel != null">
+        policy_level,
+      </if>
+      <if test="onlinePreserve != null">
+        online_preserve,
+      </if>
+      <if test="onlineRenewal != null">
+        online_renewal,
+      </if>
+      <if test="continuedType != null">
+        continued_type,
+      </if>
+      <if test="continuedPolicyIs != null">
+        continued_policy_is,
+      </if>
+      <if test="continuedPolicyNo != null">
+        continued_policy_no,
+      </if>
+      <if test="continuedOriginalPolicyNo != null">
+        continued_original_policy_no,
+      </if>
+      <if test="takeOverReceiveIs != null">
+        take_over_receive_is,
+      </if>
+      <if test="commissionDiscountPercent != null">
+        commission_discount_percent,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="bigPolicy != null">
+        big_policy,
+      </if>
+      <if test="step != null">
+        step,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="ledgerStatus != null">
+        ledger_status,
+      </if>
+      <if test="refundStatus != null">
+        refund_status,
+      </if>
+      <if test="applicantType != null">
+        applicant_type,
+      </if>
+      <if test="signStatus != null">
+        sign_status,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+      <if test="coinsuranceIs != null">
+        coinsurance_is,
+      </if>
+      <if test="salesCode != null">
+        sales_code,
+      </if>
+      <if test="extendA != null">
+        extend_a,
+      </if>
+      <if test="extendB != null">
+        extend_b,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="proposalNo != null">
+        #{proposalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceProposalNo != null">
+        #{insuranceProposalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null">
+        #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancePolicyNo != null">
+        #{insurancePolicyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelOrderNo != null">
+        #{channelOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null">
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="multiPlan != null">
+        #{multiPlan,jdbcType=TINYINT},
+      </if>
+      <if test="policyCategory != null">
+        #{policyCategory,jdbcType=BIT},
+      </if>
+      <if test="policyProperty != null">
+        #{policyProperty,jdbcType=BIT},
+      </if>
+      <if test="policyType != null">
+        #{policyType,jdbcType=BIT},
+      </if>
+      <if test="holderType != null">
+        #{holderType,jdbcType=BIT},
+      </if>
+      <if test="holderName != null">
+        #{holderName,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredType != null">
+        #{insuredType,jdbcType=BIT},
+      </if>
+      <if test="subjectType != null">
+        #{subjectType,jdbcType=BIT},
+      </if>
+      <if test="insuranceCode != null">
+        #{insuranceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceName != null">
+        #{insuranceName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=BIT},
+      </if>
+      <if test="businessDetailType != null">
+        #{businessDetailType,jdbcType=BIT},
+      </if>
+      <if test="userCode != null">
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="firstInsureMasterNum != null">
+        #{firstInsureMasterNum,jdbcType=INTEGER},
+      </if>
+      <if test="firstInsureSlaveNum != null">
+        #{firstInsureSlaveNum,jdbcType=INTEGER},
+      </if>
+      <if test="industryCode != null">
+        #{industryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="industryName != null">
+        #{industryName,jdbcType=VARCHAR},
+      </if>
+      <if test="professionType != null">
+        #{professionType,jdbcType=VARCHAR},
+      </if>
+      <if test="professionCode != null">
+        #{professionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="professionName != null">
+        #{professionName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null">
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="premiumPrice != null">
+        #{premiumPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="sumPremium != null">
+        #{sumPremium,jdbcType=DOUBLE},
+      </if>
+      <if test="netPremium != null">
+        #{netPremium,jdbcType=DOUBLE},
+      </if>
+      <if test="firstInsurePremium != null">
+        #{firstInsurePremium,jdbcType=DOUBLE},
+      </if>
+      <if test="extraPremium != null">
+        #{extraPremium,jdbcType=DOUBLE},
+      </if>
+      <if test="rebatePercent != null">
+        #{rebatePercent,jdbcType=DOUBLE},
+      </if>
+      <if test="rebatePremium != null">
+        #{rebatePremium,jdbcType=DOUBLE},
+      </if>
+      <if test="sumQuantity != null">
+        #{sumQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insureTimeUnit != null">
+        #{insureTimeUnit,jdbcType=BIT},
+      </if>
+      <if test="insureTime != null">
+        #{insureTime,jdbcType=DOUBLE},
+      </if>
+      <if test="paymentType != null">
+        #{paymentType,jdbcType=BIT},
+      </if>
+      <if test="paymentTime != null">
+        #{paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentStatus != null">
+        #{paymentStatus,jdbcType=BIT},
+      </if>
+      <if test="paymentExpiredTime != null">
+        #{paymentExpiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="proposalTime != null">
+        #{proposalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insuranceProposalTime != null">
+        #{insuranceProposalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkerCode != null">
+        #{checkerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="checkerName != null">
+        #{checkerName,jdbcType=VARCHAR},
+      </if>
+      <if test="checkerMark != null">
+        #{checkerMark,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null">
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insuranceInsureTime != null">
+        #{insuranceInsureTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insureDirections != null">
+        #{insureDirections,jdbcType=VARCHAR},
+      </if>
+      <if test="policyDownloadUrl != null">
+        #{policyDownloadUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="policyQueryUrl != null">
+        #{policyQueryUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceUrl != null">
+        #{invoiceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="policySourceCode != null">
+        #{policySourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="policySourceName != null">
+        #{policySourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellChannelCode != null">
+        #{sellChannelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellChannelName != null">
+        #{sellChannelName,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null">
+        #{invoiceType,jdbcType=BIT},
+      </if>
+      <if test="invoiceFormat != null">
+        #{invoiceFormat,jdbcType=BIT},
+      </if>
+      <if test="invoiceBuyerType != null">
+        #{invoiceBuyerType,jdbcType=BIT},
+      </if>
+      <if test="businessBelongUserCode != null">
+        #{businessBelongUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessBelongUserName != null">
+        #{businessBelongUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="operationUserCode != null">
+        #{operationUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operationUserName != null">
+        #{operationUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="policyLevel != null">
+        #{policyLevel,jdbcType=BIT},
+      </if>
+      <if test="onlinePreserve != null">
+        #{onlinePreserve,jdbcType=BIT},
+      </if>
+      <if test="onlineRenewal != null">
+        #{onlineRenewal,jdbcType=BIT},
+      </if>
+      <if test="continuedType != null">
+        #{continuedType,jdbcType=BIT},
+      </if>
+      <if test="continuedPolicyIs != null">
+        #{continuedPolicyIs,jdbcType=BIT},
+      </if>
+      <if test="continuedPolicyNo != null">
+        #{continuedPolicyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="continuedOriginalPolicyNo != null">
+        #{continuedOriginalPolicyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="takeOverReceiveIs != null">
+        #{takeOverReceiveIs,jdbcType=BIT},
+      </if>
+      <if test="commissionDiscountPercent != null">
+        #{commissionDiscountPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="bigPolicy != null">
+        #{bigPolicy,jdbcType=BIT},
+      </if>
+      <if test="step != null">
+        #{step,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="ledgerStatus != null">
+        #{ledgerStatus,jdbcType=BIT},
+      </if>
+      <if test="refundStatus != null">
+        #{refundStatus,jdbcType=BIT},
+      </if>
+      <if test="applicantType != null">
+        #{applicantType,jdbcType=BIT},
+      </if>
+      <if test="signStatus != null">
+        #{signStatus,jdbcType=BIT},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=BIT},
+      </if>
+      <if test="coinsuranceIs != null">
+        #{coinsuranceIs,jdbcType=BIT},
+      </if>
+      <if test="salesCode != null">
+        #{salesCode,jdbcType=VARCHAR},
+      </if>
+      <if test="extendA != null">
+        #{extendA,jdbcType=VARCHAR},
+      </if>
+      <if test="extendB != null">
+        #{extendB,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mu.beta.model.ProposalExample" resultType="java.lang.Long">
+    select count(*) from t_proposal
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_proposal
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.proposalNo != null">
+        proposal_no = #{record.proposalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuranceProposalNo != null">
+        insurance_proposal_no = #{record.insuranceProposalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policyNo != null">
+        policy_no = #{record.policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insurancePolicyNo != null">
+        insurance_policy_no = #{record.insurancePolicyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channelOrderNo != null">
+        channel_order_no = #{record.channelOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productCode != null">
+        product_code = #{record.productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productName != null">
+        product_name = #{record.productName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.multiPlan != null">
+        multi_plan = #{record.multiPlan,jdbcType=TINYINT},
+      </if>
+      <if test="record.policyCategory != null">
+        policy_category = #{record.policyCategory,jdbcType=BIT},
+      </if>
+      <if test="record.policyProperty != null">
+        policy_property = #{record.policyProperty,jdbcType=BIT},
+      </if>
+      <if test="record.policyType != null">
+        policy_type = #{record.policyType,jdbcType=BIT},
+      </if>
+      <if test="record.holderType != null">
+        holder_type = #{record.holderType,jdbcType=BIT},
+      </if>
+      <if test="record.holderName != null">
+        holder_name = #{record.holderName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuredType != null">
+        insured_type = #{record.insuredType,jdbcType=BIT},
+      </if>
+      <if test="record.subjectType != null">
+        subject_type = #{record.subjectType,jdbcType=BIT},
+      </if>
+      <if test="record.insuranceCode != null">
+        insurance_code = #{record.insuranceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuranceName != null">
+        insurance_name = #{record.insuranceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessType != null">
+        business_type = #{record.businessType,jdbcType=BIT},
+      </if>
+      <if test="record.businessDetailType != null">
+        business_detail_type = #{record.businessDetailType,jdbcType=BIT},
+      </if>
+      <if test="record.userCode != null">
+        user_code = #{record.userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null">
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstInsureMasterNum != null">
+        first_insure_master_num = #{record.firstInsureMasterNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstInsureSlaveNum != null">
+        first_insure_slave_num = #{record.firstInsureSlaveNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.industryCode != null">
+        industry_code = #{record.industryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.industryName != null">
+        industry_name = #{record.industryName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.professionType != null">
+        profession_type = #{record.professionType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.professionCode != null">
+        profession_code = #{record.professionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.professionName != null">
+        profession_name = #{record.professionName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityCode != null">
+        city_code = #{record.cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityName != null">
+        city_name = #{record.cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.premiumPrice != null">
+        premium_price = #{record.premiumPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sumPremium != null">
+        sum_premium = #{record.sumPremium,jdbcType=DOUBLE},
+      </if>
+      <if test="record.netPremium != null">
+        net_premium = #{record.netPremium,jdbcType=DOUBLE},
+      </if>
+      <if test="record.firstInsurePremium != null">
+        first_insure_premium = #{record.firstInsurePremium,jdbcType=DOUBLE},
+      </if>
+      <if test="record.extraPremium != null">
+        extra_premium = #{record.extraPremium,jdbcType=DOUBLE},
+      </if>
+      <if test="record.rebatePercent != null">
+        rebate_percent = #{record.rebatePercent,jdbcType=DOUBLE},
+      </if>
+      <if test="record.rebatePremium != null">
+        rebate_premium = #{record.rebatePremium,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sumQuantity != null">
+        sum_quantity = #{record.sumQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="record.startDate != null">
+        start_date = #{record.startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endDate != null">
+        end_date = #{record.endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.insureTimeUnit != null">
+        insure_time_unit = #{record.insureTimeUnit,jdbcType=BIT},
+      </if>
+      <if test="record.insureTime != null">
+        insure_time = #{record.insureTime,jdbcType=DOUBLE},
+      </if>
+      <if test="record.paymentType != null">
+        payment_type = #{record.paymentType,jdbcType=BIT},
+      </if>
+      <if test="record.paymentTime != null">
+        payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.paymentStatus != null">
+        payment_status = #{record.paymentStatus,jdbcType=BIT},
+      </if>
+      <if test="record.paymentExpiredTime != null">
+        payment_expired_time = #{record.paymentExpiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.proposalTime != null">
+        proposal_time = #{record.proposalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.insuranceProposalTime != null">
+        insurance_proposal_time = #{record.insuranceProposalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.checkerCode != null">
+        checker_code = #{record.checkerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkerName != null">
+        checker_name = #{record.checkerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkerMark != null">
+        checker_mark = #{record.checkerMark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkTime != null">
+        check_time = #{record.checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.insuranceInsureTime != null">
+        insurance_insure_time = #{record.insuranceInsureTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.insureDirections != null">
+        insure_directions = #{record.insureDirections,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policyDownloadUrl != null">
+        policy_download_url = #{record.policyDownloadUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policyQueryUrl != null">
+        policy_query_url = #{record.policyQueryUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invoiceUrl != null">
+        invoice_url = #{record.invoiceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policySourceCode != null">
+        policy_source_code = #{record.policySourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policySourceName != null">
+        policy_source_name = #{record.policySourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sellChannelCode != null">
+        sell_channel_code = #{record.sellChannelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sellChannelName != null">
+        sell_channel_name = #{record.sellChannelName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invoiceType != null">
+        invoice_type = #{record.invoiceType,jdbcType=BIT},
+      </if>
+      <if test="record.invoiceFormat != null">
+        invoice_format = #{record.invoiceFormat,jdbcType=BIT},
+      </if>
+      <if test="record.invoiceBuyerType != null">
+        invoice_buyer_type = #{record.invoiceBuyerType,jdbcType=BIT},
+      </if>
+      <if test="record.businessBelongUserCode != null">
+        business_belong_user_code = #{record.businessBelongUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessBelongUserName != null">
+        business_belong_user_name = #{record.businessBelongUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operationUserCode != null">
+        operation_user_code = #{record.operationUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operationUserName != null">
+        operation_user_name = #{record.operationUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policyLevel != null">
+        policy_level = #{record.policyLevel,jdbcType=BIT},
+      </if>
+      <if test="record.onlinePreserve != null">
+        online_preserve = #{record.onlinePreserve,jdbcType=BIT},
+      </if>
+      <if test="record.onlineRenewal != null">
+        online_renewal = #{record.onlineRenewal,jdbcType=BIT},
+      </if>
+      <if test="record.continuedType != null">
+        continued_type = #{record.continuedType,jdbcType=BIT},
+      </if>
+      <if test="record.continuedPolicyIs != null">
+        continued_policy_is = #{record.continuedPolicyIs,jdbcType=BIT},
+      </if>
+      <if test="record.continuedPolicyNo != null">
+        continued_policy_no = #{record.continuedPolicyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.continuedOriginalPolicyNo != null">
+        continued_original_policy_no = #{record.continuedOriginalPolicyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.takeOverReceiveIs != null">
+        take_over_receive_is = #{record.takeOverReceiveIs,jdbcType=BIT},
+      </if>
+      <if test="record.commissionDiscountPercent != null">
+        commission_discount_percent = #{record.commissionDiscountPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="record.amount != null">
+        amount = #{record.amount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.bigPolicy != null">
+        big_policy = #{record.bigPolicy,jdbcType=BIT},
+      </if>
+      <if test="record.step != null">
+        step = #{record.step,jdbcType=BIT},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=BIT},
+      </if>
+      <if test="record.ledgerStatus != null">
+        ledger_status = #{record.ledgerStatus,jdbcType=BIT},
+      </if>
+      <if test="record.refundStatus != null">
+        refund_status = #{record.refundStatus,jdbcType=BIT},
+      </if>
+      <if test="record.applicantType != null">
+        applicant_type = #{record.applicantType,jdbcType=BIT},
+      </if>
+      <if test="record.signStatus != null">
+        sign_status = #{record.signStatus,jdbcType=BIT},
+      </if>
+      <if test="record.payType != null">
+        pay_type = #{record.payType,jdbcType=BIT},
+      </if>
+      <if test="record.coinsuranceIs != null">
+        coinsurance_is = #{record.coinsuranceIs,jdbcType=BIT},
+      </if>
+      <if test="record.salesCode != null">
+        sales_code = #{record.salesCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extendA != null">
+        extend_a = #{record.extendA,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extendB != null">
+        extend_b = #{record.extendB,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_proposal
+    set id = #{record.id,jdbcType=BIGINT},
+      proposal_no = #{record.proposalNo,jdbcType=VARCHAR},
+      insurance_proposal_no = #{record.insuranceProposalNo,jdbcType=VARCHAR},
+      policy_no = #{record.policyNo,jdbcType=VARCHAR},
+      insurance_policy_no = #{record.insurancePolicyNo,jdbcType=VARCHAR},
+      channel_order_no = #{record.channelOrderNo,jdbcType=VARCHAR},
+      product_code = #{record.productCode,jdbcType=VARCHAR},
+      product_name = #{record.productName,jdbcType=VARCHAR},
+      multi_plan = #{record.multiPlan,jdbcType=TINYINT},
+      policy_category = #{record.policyCategory,jdbcType=BIT},
+      policy_property = #{record.policyProperty,jdbcType=BIT},
+      policy_type = #{record.policyType,jdbcType=BIT},
+      holder_type = #{record.holderType,jdbcType=BIT},
+      holder_name = #{record.holderName,jdbcType=VARCHAR},
+      insured_type = #{record.insuredType,jdbcType=BIT},
+      subject_type = #{record.subjectType,jdbcType=BIT},
+      insurance_code = #{record.insuranceCode,jdbcType=VARCHAR},
+      insurance_name = #{record.insuranceName,jdbcType=VARCHAR},
+      business_type = #{record.businessType,jdbcType=BIT},
+      business_detail_type = #{record.businessDetailType,jdbcType=BIT},
+      user_code = #{record.userCode,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      first_insure_master_num = #{record.firstInsureMasterNum,jdbcType=INTEGER},
+      first_insure_slave_num = #{record.firstInsureSlaveNum,jdbcType=INTEGER},
+      industry_code = #{record.industryCode,jdbcType=VARCHAR},
+      industry_name = #{record.industryName,jdbcType=VARCHAR},
+      profession_type = #{record.professionType,jdbcType=VARCHAR},
+      profession_code = #{record.professionCode,jdbcType=VARCHAR},
+      profession_name = #{record.professionName,jdbcType=VARCHAR},
+      city_code = #{record.cityCode,jdbcType=VARCHAR},
+      city_name = #{record.cityName,jdbcType=VARCHAR},
+      premium_price = #{record.premiumPrice,jdbcType=DOUBLE},
+      sum_premium = #{record.sumPremium,jdbcType=DOUBLE},
+      net_premium = #{record.netPremium,jdbcType=DOUBLE},
+      first_insure_premium = #{record.firstInsurePremium,jdbcType=DOUBLE},
+      extra_premium = #{record.extraPremium,jdbcType=DOUBLE},
+      rebate_percent = #{record.rebatePercent,jdbcType=DOUBLE},
+      rebate_premium = #{record.rebatePremium,jdbcType=DOUBLE},
+      sum_quantity = #{record.sumQuantity,jdbcType=INTEGER},
+      start_date = #{record.startDate,jdbcType=TIMESTAMP},
+      end_date = #{record.endDate,jdbcType=TIMESTAMP},
+      insure_time_unit = #{record.insureTimeUnit,jdbcType=BIT},
+      insure_time = #{record.insureTime,jdbcType=DOUBLE},
+      payment_type = #{record.paymentType,jdbcType=BIT},
+      payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
+      payment_status = #{record.paymentStatus,jdbcType=BIT},
+      payment_expired_time = #{record.paymentExpiredTime,jdbcType=TIMESTAMP},
+      proposal_time = #{record.proposalTime,jdbcType=TIMESTAMP},
+      insurance_proposal_time = #{record.insuranceProposalTime,jdbcType=TIMESTAMP},
+      checker_code = #{record.checkerCode,jdbcType=VARCHAR},
+      checker_name = #{record.checkerName,jdbcType=VARCHAR},
+      checker_mark = #{record.checkerMark,jdbcType=VARCHAR},
+      check_time = #{record.checkTime,jdbcType=TIMESTAMP},
+      insurance_insure_time = #{record.insuranceInsureTime,jdbcType=TIMESTAMP},
+      insure_directions = #{record.insureDirections,jdbcType=VARCHAR},
+      policy_download_url = #{record.policyDownloadUrl,jdbcType=VARCHAR},
+      policy_query_url = #{record.policyQueryUrl,jdbcType=VARCHAR},
+      invoice_url = #{record.invoiceUrl,jdbcType=VARCHAR},
+      policy_source_code = #{record.policySourceCode,jdbcType=VARCHAR},
+      policy_source_name = #{record.policySourceName,jdbcType=VARCHAR},
+      sell_channel_code = #{record.sellChannelCode,jdbcType=VARCHAR},
+      sell_channel_name = #{record.sellChannelName,jdbcType=VARCHAR},
+      invoice_type = #{record.invoiceType,jdbcType=BIT},
+      invoice_format = #{record.invoiceFormat,jdbcType=BIT},
+      invoice_buyer_type = #{record.invoiceBuyerType,jdbcType=BIT},
+      business_belong_user_code = #{record.businessBelongUserCode,jdbcType=VARCHAR},
+      business_belong_user_name = #{record.businessBelongUserName,jdbcType=VARCHAR},
+      operation_user_code = #{record.operationUserCode,jdbcType=VARCHAR},
+      operation_user_name = #{record.operationUserName,jdbcType=VARCHAR},
+      policy_level = #{record.policyLevel,jdbcType=BIT},
+      online_preserve = #{record.onlinePreserve,jdbcType=BIT},
+      online_renewal = #{record.onlineRenewal,jdbcType=BIT},
+      continued_type = #{record.continuedType,jdbcType=BIT},
+      continued_policy_is = #{record.continuedPolicyIs,jdbcType=BIT},
+      continued_policy_no = #{record.continuedPolicyNo,jdbcType=VARCHAR},
+      continued_original_policy_no = #{record.continuedOriginalPolicyNo,jdbcType=VARCHAR},
+      take_over_receive_is = #{record.takeOverReceiveIs,jdbcType=BIT},
+      commission_discount_percent = #{record.commissionDiscountPercent,jdbcType=DECIMAL},
+      amount = #{record.amount,jdbcType=DECIMAL},
+      big_policy = #{record.bigPolicy,jdbcType=BIT},
+      step = #{record.step,jdbcType=BIT},
+      status = #{record.status,jdbcType=BIT},
+      ledger_status = #{record.ledgerStatus,jdbcType=BIT},
+      refund_status = #{record.refundStatus,jdbcType=BIT},
+      applicant_type = #{record.applicantType,jdbcType=BIT},
+      sign_status = #{record.signStatus,jdbcType=BIT},
+      pay_type = #{record.payType,jdbcType=BIT},
+      coinsurance_is = #{record.coinsuranceIs,jdbcType=BIT},
+      sales_code = #{record.salesCode,jdbcType=VARCHAR},
+      extend_a = #{record.extendA,jdbcType=VARCHAR},
+      extend_b = #{record.extendB,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mu.beta.model.Proposal">
+    update t_proposal
+    <set>
+      <if test="proposalNo != null">
+        proposal_no = #{proposalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceProposalNo != null">
+        insurance_proposal_no = #{insuranceProposalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null">
+        policy_no = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancePolicyNo != null">
+        insurance_policy_no = #{insurancePolicyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelOrderNo != null">
+        channel_order_no = #{channelOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null">
+        product_code = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="multiPlan != null">
+        multi_plan = #{multiPlan,jdbcType=TINYINT},
+      </if>
+      <if test="policyCategory != null">
+        policy_category = #{policyCategory,jdbcType=BIT},
+      </if>
+      <if test="policyProperty != null">
+        policy_property = #{policyProperty,jdbcType=BIT},
+      </if>
+      <if test="policyType != null">
+        policy_type = #{policyType,jdbcType=BIT},
+      </if>
+      <if test="holderType != null">
+        holder_type = #{holderType,jdbcType=BIT},
+      </if>
+      <if test="holderName != null">
+        holder_name = #{holderName,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredType != null">
+        insured_type = #{insuredType,jdbcType=BIT},
+      </if>
+      <if test="subjectType != null">
+        subject_type = #{subjectType,jdbcType=BIT},
+      </if>
+      <if test="insuranceCode != null">
+        insurance_code = #{insuranceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceName != null">
+        insurance_name = #{insuranceName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        business_type = #{businessType,jdbcType=BIT},
+      </if>
+      <if test="businessDetailType != null">
+        business_detail_type = #{businessDetailType,jdbcType=BIT},
+      </if>
+      <if test="userCode != null">
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="firstInsureMasterNum != null">
+        first_insure_master_num = #{firstInsureMasterNum,jdbcType=INTEGER},
+      </if>
+      <if test="firstInsureSlaveNum != null">
+        first_insure_slave_num = #{firstInsureSlaveNum,jdbcType=INTEGER},
+      </if>
+      <if test="industryCode != null">
+        industry_code = #{industryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="industryName != null">
+        industry_name = #{industryName,jdbcType=VARCHAR},
+      </if>
+      <if test="professionType != null">
+        profession_type = #{professionType,jdbcType=VARCHAR},
+      </if>
+      <if test="professionCode != null">
+        profession_code = #{professionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="professionName != null">
+        profession_name = #{professionName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null">
+        city_code = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="premiumPrice != null">
+        premium_price = #{premiumPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="sumPremium != null">
+        sum_premium = #{sumPremium,jdbcType=DOUBLE},
+      </if>
+      <if test="netPremium != null">
+        net_premium = #{netPremium,jdbcType=DOUBLE},
+      </if>
+      <if test="firstInsurePremium != null">
+        first_insure_premium = #{firstInsurePremium,jdbcType=DOUBLE},
+      </if>
+      <if test="extraPremium != null">
+        extra_premium = #{extraPremium,jdbcType=DOUBLE},
+      </if>
+      <if test="rebatePercent != null">
+        rebate_percent = #{rebatePercent,jdbcType=DOUBLE},
+      </if>
+      <if test="rebatePremium != null">
+        rebate_premium = #{rebatePremium,jdbcType=DOUBLE},
+      </if>
+      <if test="sumQuantity != null">
+        sum_quantity = #{sumQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insureTimeUnit != null">
+        insure_time_unit = #{insureTimeUnit,jdbcType=BIT},
+      </if>
+      <if test="insureTime != null">
+        insure_time = #{insureTime,jdbcType=DOUBLE},
+      </if>
+      <if test="paymentType != null">
+        payment_type = #{paymentType,jdbcType=BIT},
+      </if>
+      <if test="paymentTime != null">
+        payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentStatus != null">
+        payment_status = #{paymentStatus,jdbcType=BIT},
+      </if>
+      <if test="paymentExpiredTime != null">
+        payment_expired_time = #{paymentExpiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="proposalTime != null">
+        proposal_time = #{proposalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insuranceProposalTime != null">
+        insurance_proposal_time = #{insuranceProposalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkerCode != null">
+        checker_code = #{checkerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="checkerName != null">
+        checker_name = #{checkerName,jdbcType=VARCHAR},
+      </if>
+      <if test="checkerMark != null">
+        checker_mark = #{checkerMark,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null">
+        check_time = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insuranceInsureTime != null">
+        insurance_insure_time = #{insuranceInsureTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insureDirections != null">
+        insure_directions = #{insureDirections,jdbcType=VARCHAR},
+      </if>
+      <if test="policyDownloadUrl != null">
+        policy_download_url = #{policyDownloadUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="policyQueryUrl != null">
+        policy_query_url = #{policyQueryUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceUrl != null">
+        invoice_url = #{invoiceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="policySourceCode != null">
+        policy_source_code = #{policySourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="policySourceName != null">
+        policy_source_name = #{policySourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellChannelCode != null">
+        sell_channel_code = #{sellChannelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellChannelName != null">
+        sell_channel_name = #{sellChannelName,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null">
+        invoice_type = #{invoiceType,jdbcType=BIT},
+      </if>
+      <if test="invoiceFormat != null">
+        invoice_format = #{invoiceFormat,jdbcType=BIT},
+      </if>
+      <if test="invoiceBuyerType != null">
+        invoice_buyer_type = #{invoiceBuyerType,jdbcType=BIT},
+      </if>
+      <if test="businessBelongUserCode != null">
+        business_belong_user_code = #{businessBelongUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessBelongUserName != null">
+        business_belong_user_name = #{businessBelongUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="operationUserCode != null">
+        operation_user_code = #{operationUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="operationUserName != null">
+        operation_user_name = #{operationUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="policyLevel != null">
+        policy_level = #{policyLevel,jdbcType=BIT},
+      </if>
+      <if test="onlinePreserve != null">
+        online_preserve = #{onlinePreserve,jdbcType=BIT},
+      </if>
+      <if test="onlineRenewal != null">
+        online_renewal = #{onlineRenewal,jdbcType=BIT},
+      </if>
+      <if test="continuedType != null">
+        continued_type = #{continuedType,jdbcType=BIT},
+      </if>
+      <if test="continuedPolicyIs != null">
+        continued_policy_is = #{continuedPolicyIs,jdbcType=BIT},
+      </if>
+      <if test="continuedPolicyNo != null">
+        continued_policy_no = #{continuedPolicyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="continuedOriginalPolicyNo != null">
+        continued_original_policy_no = #{continuedOriginalPolicyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="takeOverReceiveIs != null">
+        take_over_receive_is = #{takeOverReceiveIs,jdbcType=BIT},
+      </if>
+      <if test="commissionDiscountPercent != null">
+        commission_discount_percent = #{commissionDiscountPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="bigPolicy != null">
+        big_policy = #{bigPolicy,jdbcType=BIT},
+      </if>
+      <if test="step != null">
+        step = #{step,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="ledgerStatus != null">
+        ledger_status = #{ledgerStatus,jdbcType=BIT},
+      </if>
+      <if test="refundStatus != null">
+        refund_status = #{refundStatus,jdbcType=BIT},
+      </if>
+      <if test="applicantType != null">
+        applicant_type = #{applicantType,jdbcType=BIT},
+      </if>
+      <if test="signStatus != null">
+        sign_status = #{signStatus,jdbcType=BIT},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=BIT},
+      </if>
+      <if test="coinsuranceIs != null">
+        coinsurance_is = #{coinsuranceIs,jdbcType=BIT},
+      </if>
+      <if test="salesCode != null">
+        sales_code = #{salesCode,jdbcType=VARCHAR},
+      </if>
+      <if test="extendA != null">
+        extend_a = #{extendA,jdbcType=VARCHAR},
+      </if>
+      <if test="extendB != null">
+        extend_b = #{extendB,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mu.beta.model.Proposal">
+    update t_proposal
+    set proposal_no = #{proposalNo,jdbcType=VARCHAR},
+      insurance_proposal_no = #{insuranceProposalNo,jdbcType=VARCHAR},
+      policy_no = #{policyNo,jdbcType=VARCHAR},
+      insurance_policy_no = #{insurancePolicyNo,jdbcType=VARCHAR},
+      channel_order_no = #{channelOrderNo,jdbcType=VARCHAR},
+      product_code = #{productCode,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      multi_plan = #{multiPlan,jdbcType=TINYINT},
+      policy_category = #{policyCategory,jdbcType=BIT},
+      policy_property = #{policyProperty,jdbcType=BIT},
+      policy_type = #{policyType,jdbcType=BIT},
+      holder_type = #{holderType,jdbcType=BIT},
+      holder_name = #{holderName,jdbcType=VARCHAR},
+      insured_type = #{insuredType,jdbcType=BIT},
+      subject_type = #{subjectType,jdbcType=BIT},
+      insurance_code = #{insuranceCode,jdbcType=VARCHAR},
+      insurance_name = #{insuranceName,jdbcType=VARCHAR},
+      business_type = #{businessType,jdbcType=BIT},
+      business_detail_type = #{businessDetailType,jdbcType=BIT},
+      user_code = #{userCode,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      first_insure_master_num = #{firstInsureMasterNum,jdbcType=INTEGER},
+      first_insure_slave_num = #{firstInsureSlaveNum,jdbcType=INTEGER},
+      industry_code = #{industryCode,jdbcType=VARCHAR},
+      industry_name = #{industryName,jdbcType=VARCHAR},
+      profession_type = #{professionType,jdbcType=VARCHAR},
+      profession_code = #{professionCode,jdbcType=VARCHAR},
+      profession_name = #{professionName,jdbcType=VARCHAR},
+      city_code = #{cityCode,jdbcType=VARCHAR},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      premium_price = #{premiumPrice,jdbcType=DOUBLE},
+      sum_premium = #{sumPremium,jdbcType=DOUBLE},
+      net_premium = #{netPremium,jdbcType=DOUBLE},
+      first_insure_premium = #{firstInsurePremium,jdbcType=DOUBLE},
+      extra_premium = #{extraPremium,jdbcType=DOUBLE},
+      rebate_percent = #{rebatePercent,jdbcType=DOUBLE},
+      rebate_premium = #{rebatePremium,jdbcType=DOUBLE},
+      sum_quantity = #{sumQuantity,jdbcType=INTEGER},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      insure_time_unit = #{insureTimeUnit,jdbcType=BIT},
+      insure_time = #{insureTime,jdbcType=DOUBLE},
+      payment_type = #{paymentType,jdbcType=BIT},
+      payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      payment_status = #{paymentStatus,jdbcType=BIT},
+      payment_expired_time = #{paymentExpiredTime,jdbcType=TIMESTAMP},
+      proposal_time = #{proposalTime,jdbcType=TIMESTAMP},
+      insurance_proposal_time = #{insuranceProposalTime,jdbcType=TIMESTAMP},
+      checker_code = #{checkerCode,jdbcType=VARCHAR},
+      checker_name = #{checkerName,jdbcType=VARCHAR},
+      checker_mark = #{checkerMark,jdbcType=VARCHAR},
+      check_time = #{checkTime,jdbcType=TIMESTAMP},
+      insurance_insure_time = #{insuranceInsureTime,jdbcType=TIMESTAMP},
+      insure_directions = #{insureDirections,jdbcType=VARCHAR},
+      policy_download_url = #{policyDownloadUrl,jdbcType=VARCHAR},
+      policy_query_url = #{policyQueryUrl,jdbcType=VARCHAR},
+      invoice_url = #{invoiceUrl,jdbcType=VARCHAR},
+      policy_source_code = #{policySourceCode,jdbcType=VARCHAR},
+      policy_source_name = #{policySourceName,jdbcType=VARCHAR},
+      sell_channel_code = #{sellChannelCode,jdbcType=VARCHAR},
+      sell_channel_name = #{sellChannelName,jdbcType=VARCHAR},
+      invoice_type = #{invoiceType,jdbcType=BIT},
+      invoice_format = #{invoiceFormat,jdbcType=BIT},
+      invoice_buyer_type = #{invoiceBuyerType,jdbcType=BIT},
+      business_belong_user_code = #{businessBelongUserCode,jdbcType=VARCHAR},
+      business_belong_user_name = #{businessBelongUserName,jdbcType=VARCHAR},
+      operation_user_code = #{operationUserCode,jdbcType=VARCHAR},
+      operation_user_name = #{operationUserName,jdbcType=VARCHAR},
+      policy_level = #{policyLevel,jdbcType=BIT},
+      online_preserve = #{onlinePreserve,jdbcType=BIT},
+      online_renewal = #{onlineRenewal,jdbcType=BIT},
+      continued_type = #{continuedType,jdbcType=BIT},
+      continued_policy_is = #{continuedPolicyIs,jdbcType=BIT},
+      continued_policy_no = #{continuedPolicyNo,jdbcType=VARCHAR},
+      continued_original_policy_no = #{continuedOriginalPolicyNo,jdbcType=VARCHAR},
+      take_over_receive_is = #{takeOverReceiveIs,jdbcType=BIT},
+      commission_discount_percent = #{commissionDiscountPercent,jdbcType=DECIMAL},
+      amount = #{amount,jdbcType=DECIMAL},
+      big_policy = #{bigPolicy,jdbcType=BIT},
+      step = #{step,jdbcType=BIT},
+      status = #{status,jdbcType=BIT},
+      ledger_status = #{ledgerStatus,jdbcType=BIT},
+      refund_status = #{refundStatus,jdbcType=BIT},
+      applicant_type = #{applicantType,jdbcType=BIT},
+      sign_status = #{signStatus,jdbcType=BIT},
+      pay_type = #{payType,jdbcType=BIT},
+      coinsurance_is = #{coinsuranceIs,jdbcType=BIT},
+      sales_code = #{salesCode,jdbcType=VARCHAR},
+      extend_a = #{extendA,jdbcType=VARCHAR},
+      extend_b = #{extendB,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+  <select id="listProposal" parameterType="com.mu.beta.model.Proposal" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_proposal
+    <where>
+
+      <if test="productCode != null">
+        product_code = #{productCode,jdbcType=VARCHAR}
+      </if>
+
+    </where>
+  </select>
+
+
+
+
+  <select id="listProposalPage" parameterType="com.mu.beta.model.Proposal" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_proposal
+    <where>
+
+      <if test="productCode != null">
+        product_code = #{productCode,jdbcType=VARCHAR}
+      </if>
+
+    </where>
+  </select>
+</mapper>
